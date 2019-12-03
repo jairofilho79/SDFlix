@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  form.form-signin
+    .text-center.mb-4
+      img.mb-4(src='https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg', alt='', width='72', height='72')
+      h1.h3.mb-3.font-weight-normal Floating labels
+      p
+        | Build form controls with floating labels via the 
+        code :placeholder-shown
+        |  pseudo-element. 
+        a(href='https://caniuse.com/#feat=css-placeholder-shown') Works in latest Chrome, Safari, and Firefox.
+    .form-label-group
+      input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='')
+      label(for='inputEmail') Email address
+    .form-label-group
+      input#inputPassword.form-control(type='password', placeholder='Password', required='')
+      label(for='inputPassword') Password
+    .checkbox.mb-3
+      label
+        input(type='checkbox', value='remember-me')
+        |  Remember me
+    button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
+    p.mt-5.mb-3.text-muted.text-center © 2017-2019
+  
