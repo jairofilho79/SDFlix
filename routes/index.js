@@ -1,6 +1,7 @@
 var express = require('express');
 const axios = require('axios');
 const bcrypt = require('bcrypt');
+var jsonServer = require('json-server');
 var router = express.Router();
 const jsonServerPort = 1000;
 const saltRounds = 10;
@@ -52,5 +53,6 @@ router.get('/logout', (req, res) => {
       res.redirect('/login');
   }
 });
+router.use('/api',jsonServer.router('db.json'));
 
 module.exports = router;
