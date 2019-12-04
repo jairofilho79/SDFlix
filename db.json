@@ -1,4 +1,4 @@
 {
-    "users": [],
+    "users": [{"name": "user","email": "user@email.com", "password": "$2b$10$LuE8Ank3SLbs4oPudM7JKeCAiDSB59/zWRgnwwFYYpkxbLtNxYej."}],
     "movies": []
 }

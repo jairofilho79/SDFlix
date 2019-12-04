@@ -3,7 +3,7 @@ const axios = require('axios');
 const bcrypt = require('bcrypt');
 var jsonServer = require('json-server');
 var router = express.Router();
-const jsonServerPort = 1000;
+const jsonServerPort = 3000;
 const saltRounds = 10;
 /* GET home page. */
 
@@ -36,13 +36,18 @@ router.get('/login',(req,res,next)=>{
 });
 
 router.post('/login', async function(req, res) {
-  const hashPassword = await bcrypt.hash(req.body.password, saltRounds);
-  const user = await axios.get(`http://localhost:${jsonServerPort}/users?email=${req.body.email}&password=${hashPassword}`)
-  
-  if(!user) res.status(401).end("Data incorrect")
+ try{if(req.body.password) {}} catch(e) {return}
+ const {password, email} = req.body
+  const hashPassword = await bcrypt.hash(password, saltRounds);
+  const axiosResponse = await axios.get(`http://localhost:3000/api/users?email=${req.body.email}`)
+  const user = axiosResponse.data[0]
+
+  if(!user) {res.status(404).end("User not found"); return}
+
+  if(!await bcrypt.compare(password, user.password)) {res.status(401).end("Data incorrect"); return}
   
   req.session.user = user.name
-  res.status(200).redirect('/')
+  res.redirect('/')
 })
 
 router.get('/logout', (req, res) => {
