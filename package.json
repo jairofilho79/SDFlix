@@ -3,17 +3,24 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon ./bin/www",
-    "start": "node ./bin/www"
+    "dev": "nodemon ./bin/www && json-server --watch db/db.json",
+    "start": "node ./bin/www && json-server --watch db/db.json"
   },
   "dependencies": {
+    "axios": "^0.19.0",
+    "bcrypt": "^3.0.7",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "ejs": "^3.0.1",
     "express": "~4.16.1",
+    "express-session": "^1.17.0",
     "fs": "0.0.1-security",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/express-session": "^1.15.16"
   }
 }
