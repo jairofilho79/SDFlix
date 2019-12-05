@@ -17,44 +17,53 @@
     
         <!-- Custom styles for this template -->
         <link href="https://getbootstrap.com/docs/4.0/examples/floating-labels/floating-labels.css" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+
         <style>
           body {
             background-color:#000;
           }
-          .homepage {
-            width: 100%;
-            height: 100%;
-            margin: 0;
+          body {
             background: url(https://romulobrasil.com/romae-content/uploads/2018/12/filmes-super-heroi-2018.jpg);
           }
           #login-box {
             background: #fff;
-            z-index: 1;
             padding: 40px 40px;
             box-shadow: 5px 10px 10px #000;
           }
+          input {
+            margin:7px 0;
+          }
+          button {
+            cursor: pointer;
+          }
+          .logo-focus {
+            font-family: 'Bowlby One SC', cursive;
+            color:#8B2500;
+            font-size:40px;
+            }
+          .logo-details {
+            font-family: 'Roboto';
+            color:#1c1c1c;
+            font-size:36px;
+            font-style: italic;
+          }
         </style>
   </head>
-  <body>
-    <div class="homepage">
-      <div class="container">
-        <div class="row justify-content-md-center">
-          <div class="col-sm-4" id="login-box">
-            <form id="form-signin" class="text-center mb-4" id="login-box">
-              <h1 class="h3 mb-3 font-weight-normal">
-                <spam style="font-weight:bold;color:#8B2500;font-family:'Roboto';"><b>SD</b></spam>Flix
-              </h1>
-              <p>Faça <i>login</i> para assistir diversos títulos</p>
-              <br>
-              <input type="email" id="email" class="form-control" placeholder='E-mail' required>
-
-              <input type="password" id="password" class="form-control" placeholder='Senha' required>
-
-              <button type="button" class="btn-lg btn-primary btn-danger" onclick="sendLogin()">Sign in</button>
-              <br>
-              <br>
-            </form>
-          </div>
+  <body class="text-center">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-sm-4" id="login-box">
+          <form id="form-signin" class="text-center mb-4" id="login-box">
+            <h1 class="h3 mb-3 font-weight-normal">
+              <spam class="logo-focus"><b>SD</b></spam><spam class="logo-details">Flix</spam>
+            </h1>
+            <p>Faça <i>login</i> para assistir diversos títulos</p>
+            <input type="email" id="email" class="form-control" placeholder='Username' required>
+            <input type="password" id="password" class="form-control" placeholder='Senha' required>
+            <button type="button" class="btn btn-lg btn-primary btn-danger" onclick="sendLogin()">Sign in</button>
+          </form>
         </div>
       </div>
     </div>
@@ -75,11 +84,15 @@
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({email, password})}
-        )
-        .then(response => response.text())
+        ).then( res => {
+          if (res.status == 200){
+            location = "/"
+          }
+        })
+        /*.then(response => response.text())
         .then(text => {
           sessionStorage.setItem('authToken', text);
-        })
+        })*/
       }
     </script>
   </body>
