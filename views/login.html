@@ -26,7 +26,6 @@
             height: 100%;
             margin: 0;
             background: url(https://romulobrasil.com/romae-content/uploads/2018/12/filmes-super-heroi-2018.jpg);
-            z-index: -1;
           }
           #login-box {
             background: #fff;
@@ -47,7 +46,11 @@
               </h1>
               <p>Faça <i>login</i> para assistir diversos títulos</p>
               <br>
-              <input type="email" id="email" class="form-control" placeholder='E-mail' required autofocus>
+              <input type="email" id="email" class="form-control" placeholder='E-mail' required>
+
+              <input type="password" id="password" class="form-control" placeholder='Senha' required>
+
+              <button type="button" class="btn-lg btn-primary btn-danger" onclick="sendLogin()">Sign in</button>
               <br>
               <br>
             </form>
