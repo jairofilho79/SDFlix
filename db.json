@@ -3,7 +3,7 @@
     {
       "email": "admin",
       "password": "$2b$10$WYYGiwIqrUJAiAxJ3NeWHuNEYQiScUF17c4BQ3SY9ewbDpev7ujYa",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiJhZG1pbiQyYiQxMCRXWVlHaXdJcXJVSkFpQXhKM05lV0h1TkVZUWlTY1VGMTdjNEJRM1NZOWV3YkRwZXY3dWpZYSIsImlhdCI6MTU3NTU2NjEwNiwiZXhwIjoxNTc2MTcwOTA2fQ.s_rDCKk6oKWZ9F246eDpJmXntszp8e9PAlOVeZlln1U"
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiJhZG1pbiQyYiQxMCRXWVlHaXdJcXJVSkFpQXhKM05lV0h1TkVZUWlTY1VGMTdjNEJRM1NZOWV3YkRwZXY3dWpZYSIsImlhdCI6MTU3NTU3Mjc5OSwiZXhwIjoxNTc2MTc3NTk5fQ.VNn8hX6QYwzgrIIPDx5yjphNbG-aZEtmcCiNro1ue-8"
     }
   ],
   "movies": []

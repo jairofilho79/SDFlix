@@ -22,6 +22,7 @@
                 color:#fff;
                 font-style: italic;
                 font-size: 18px;
+                margin-right:20px;
               }
             </style>
         </head>
@@ -37,6 +38,9 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                   <spam class="logo-focus"><b>SD</b></spam><spam class="logo-details">Flix</spam>
                   <ul class="navbar-nav mr-auto mt-2 mt-lg-0"> 
+                    <li class="nav-item"><button class="btn btn-dark" type="submit" onclick="alternarVideo('video1')"><i>Vídeo 1</i></button></li>
+                    <li class="nav-item"><button class="btn btn-dark" type="submit" onclick="alternarVideo('video2')"><i>Vídeo 2</i></button></li>
+                    <li class="nav-item"><button class="btn btn-dark" type="submit" onclick="alternarVideo('video3')"><i>Vídeo 3</i></button></li>
                   </ul>
                   <button class="btn btn-danger my-2 my-sm-0" type="submit" onclick="logout()"><i>Logout</i></button>
                 </div>
@@ -54,6 +58,9 @@
           <script>
             function logout() {
               window.location.href = "/logout";
+            }
+            function alternarVideo(video_name){
+              document.getElementsByTagName("video")[0].src = "/api/movies/" + video_name + ".mp4";
             }
           </script>
 
