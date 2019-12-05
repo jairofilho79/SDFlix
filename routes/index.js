@@ -23,6 +23,15 @@ router.get("/login", sessionChecker, (req, res) => {
 });
 
 router.post("/login", loginUser);
+router.get('/logout', (req, res) => {
+  if (req.session.user && req.cookies.user_sid) {
+    res.clearCookie('user_sid');
+    res.redirect('/');
+   } else {
+      res.redirect('/login');
+   }
+});
+
 
 router.get("/api/users", listUsers);
 router.post("/api/users", registerUser);
@@ -139,14 +148,5 @@ async function sessionChecker(req, res, next) {
 //   req.session.user = user.name
 //   res.redirect('/')
 // })
-
-// router.get('/logout', (req, res) => {
-//   if (req.session.user && req.cookies.user_sid) {
-//       res.clearCookie('user_sid');
-//       res.redirect('/');
-//   } else {
-//       res.redirect('/login');
-//   }
-// });
 
 module.exports = router;
