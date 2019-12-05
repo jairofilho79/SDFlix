@@ -1,7 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
-const bodyParser = require("body-parser");
 const low = require("lowdb");
+const jwt = require("jsonwebtoken")
 const FileSync = require("lowdb/adapters/FileSync");
 const uuid = require("uuid");
 
@@ -11,8 +11,8 @@ const saltRounds = 10;
 const adapter = new FileSync("db.json");
 const db = low(adapter);
 
-router.use(bodyParser.urlencoded({ extended: false }));
-router.use(bodyParser.json());
+router.use(express.urlencoded({ extended: false }));
+router.use(express.json());
 
 router.get("/", sessionChecker, (req, res, next) => {
   res.redirect("/login");
@@ -72,7 +72,7 @@ function registerUser(req, res) {
   res.status(201).send(db.get("users").find({ email }));
 }
 
-function loginUser(req, res){
+async function loginUser(req, res){
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -82,7 +82,7 @@ function loginUser(req, res){
     return;
   }
 
-  const userFind = db
+  const userFind = await db
     .get("users")
     .find({ email })
     .value();
@@ -92,22 +92,31 @@ function loginUser(req, res){
     return;
   }
 
-  if (!bcrypt.compareSync(password, userFind.password)) {
+  if (!await bcrypt.compare(password, userFind.password)) {
     res.status(401).send({
       code: "invalidPassword"
     });
     return;
   }
-  
-  req.session.user = email;
+
+  const token = jwt.sign({ _id: email+userFind.password },'ldnnsdlknsdlkvn', {expiresIn: "7 days"})
+
+  req.session.user = token;
+  await db
+    .get("users")
+    .find({ email })
+    .assign({ token })
+    .write();
+
   res.redirect("/");
 }
 
 // middleware function to check for logged-in users
-function sessionChecker(req, res, next) {
-  console.log(req.session);
-  console.log(req)
-  if (req.session.user && req.cookies.user_sid) {
+async function sessionChecker(req, res, next) {
+  if(!req.session.user) {next(); return;}
+
+  hasValidToken = await db.get("users").find({ token: req.session.user }).value()
+  if (!!hasValidToken && req.cookies.user_sid) {
     res.render("movies");
   } else {
     next();

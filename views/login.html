@@ -48,7 +48,12 @@
             'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({email, password})})
+          body: JSON.stringify({email, password})}
+        )
+        .then(response => response.text())
+        .then(text => {
+          sessionStorage.setItem('authToken', text);
+        })
       }
     </script>
   </body>

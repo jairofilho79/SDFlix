@@ -2,7 +2,8 @@
   "users": [
     {
       "email": "admin",
-      "password": "$2b$10$WYYGiwIqrUJAiAxJ3NeWHuNEYQiScUF17c4BQ3SY9ewbDpev7ujYa"
+      "password": "$2b$10$WYYGiwIqrUJAiAxJ3NeWHuNEYQiScUF17c4BQ3SY9ewbDpev7ujYa",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiJhZG1pbiQyYiQxMCRXWVlHaXdJcXJVSkFpQXhKM05lV0h1TkVZUWlTY1VGMTdjNEJRM1NZOWV3YkRwZXY3dWpZYSIsImlhdCI6MTU3NTU1NDk1NywiZXhwIjoxNTc2MTU5NzU3fQ.2pEh0G-FIJYHoPleBCnGDsAYhUhnRwOTyXguPxA01bI"
     }
   ],
   "movies": []
