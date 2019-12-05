@@ -1,4 +1,9 @@
 {
-    "users": [{"name": "user","email": "user@email.com", "password": "$2b$10$LuE8Ank3SLbs4oPudM7JKeCAiDSB59/zWRgnwwFYYpkxbLtNxYej."}],
-    "movies": []
+  "users": [
+    {
+      "email": "admin",
+      "password": "$2b$10$WYYGiwIqrUJAiAxJ3NeWHuNEYQiScUF17c4BQ3SY9ewbDpev7ujYa"
+    }
+  ],
+  "movies": []
 }

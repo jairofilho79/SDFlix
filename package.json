@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon ./bin/www && json-server --watch db/db.json",
-    "start": "node ./bin/www && json-server --watch db/db.json"
+    "dev": "nodemon ./bin/www --ignore db.json",
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "axios": "^0.19.0",
     "bcrypt": "^3.0.7",
+    "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "^3.0.1",
@@ -18,6 +19,7 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "json-server": "^0.15.1",
+    "lowdb": "^1.0.0",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.1"
   },
